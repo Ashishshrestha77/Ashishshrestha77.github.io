@@ -1,0 +1,198 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0a0a0a;
+  color: white;
+}
+
+/* NAV */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: black;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  background: url('hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: orange;
+  color: black;
+  text-decoration: none;
+}
+
+/* SECTION */
+#work {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* TITLE */
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+/* GRID */
+.video-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  justify-content: center;
+  gap: 25px;
+}
+
+/* CARD */
+.video-card {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* IMAGE */
+.video-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+/* TEXT */
+.overlay p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* PLAY ICON */
+.play-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  position: relative;
+}
+
+/* TRIANGLE */
+.play-icon::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 18px;
+  border-left: 18px solid white;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/* HOVER EFFECT */
+.video-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.7);
+}
+
+.video-card:hover .overlay {
+  opacity: 1;
+}
+
+.video-card:hover .play-icon {
+  background: orange;
+}
+
+/* PHOTO */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.photo {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* CLIENT */
+.client-block {
+  padding: 20px;
+}
+
+/* LIGHTBOX */
+#lightbox {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 90%;
+}
+
+/* CONTACT */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-item {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* INITIAL STATE (hidden) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* WHEN VISIBLE */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.btn:active {
+  transform: scale(0.95);
+}
