@@ -27,6 +27,7 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1000;
+  align-items: center;
 }
 
 header h1 {
@@ -650,7 +651,7 @@ nav {
   }
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE 
 @media(max-width: 768px){
   header {
     flex-direction: column;
@@ -661,7 +662,7 @@ nav {
     margin-top: 10px;
   }
 }
-
+*/
 
 .site-title {
   text-decoration: none;
