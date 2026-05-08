@@ -661,3 +661,31 @@ nav {
     margin-top: 10px;
   }
 }
+
+
+.site-title {
+  text-decoration: none;
+  color: white;
+
+  font-size: 2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+}
+
+/* NO PURPLE/BLUE LINK COLORS */
+.site-title:visited,
+.site-title:hover,
+.site-title:active {
+  color: white;
+  text-decoration: none;
+}
+
+/* subtle premium hover */
+.site-title:hover {
+  opacity: 0.8;
+}
+
+
