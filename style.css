@@ -688,4 +688,43 @@ nav {
   opacity: 0.8;
 }
 
+.modal-img {
+  touch-action: pan-y;
 
+}
+
+/* MODAL IMAGE ANIMATION */
+.modal-img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* SLIDE ANIMATIONS */
+.slide-left {
+  animation: slideLeft 0.3s ease;
+}
+
+.slide-right {
+  animation: slideRight 0.3s ease;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
