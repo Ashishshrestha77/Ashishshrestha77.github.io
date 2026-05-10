@@ -501,14 +501,28 @@ header {
   margin-bottom: 15px;
 }
 /* NAV BUTTONS */
-.nav {
-  position: absolute;
-  top: 50%;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  user-select: none;
+nav {
+  position: fixed;
+
+  top: 70px;
+  right: -100%;
+
+  width: 250px;
+  height: 100vh;
+
+  background: rgba(0,0,0,0.96);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  padding: 40px 30px;
+  gap: 25px;
+
+  transition: right 0.35s ease;
+
+  z-index: 1000;
 }
 
 .prev { left: 30px; }
