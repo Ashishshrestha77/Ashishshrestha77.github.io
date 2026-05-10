@@ -52,7 +52,7 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  height: 100vh;
+  min-height: calc(100vh-80px);
   background: url('hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
