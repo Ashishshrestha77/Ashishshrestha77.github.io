@@ -20,9 +20,10 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #0a0a0a;
   color: white;
+  overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* NAVBAR 
 header {
   display: flex;
   justify-content: space-between;
@@ -32,6 +33,26 @@ header {
   width: 100%;
   z-index: 1000;
   align-items: center;
+}*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 50px;
+
+  background: rgba(0,0,0,0.8);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  z-index: 1000;
 }
 
 header h1 {
@@ -52,7 +73,7 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  min-height: calc(100vh-80px);
+  height: 100vh;
   background: url('hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
