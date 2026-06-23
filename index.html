@@ -90,21 +90,21 @@
     <p>Fashion brand with 70K+ followers. Worked on multiple shoots including model campaigns.</p>
 
     <div class="photo-grid reveal">
-      <img src="DS Collection (1).jpg" class="photo client ds">
-      <img src="DS Collection (2).jpg" class="photo client ds">
-      <img src="DS Collection (3).jpg" class="photo client ds">
-      <img src="DS Collection (4).jpg" class="photo client ds">
-      <img src="DS Collection (5).jpg" class="photo client ds">
-      <img src="DS Collection (6).jpg" class="photo client ds">
-      <img src="DS Collection (7).jpg" class="photo client ds">
-      <img src="DS Collection (8).jpg" class="photo client ds">
-      <img src="DS Collection (9).jpg" class="photo client ds">
-      <img src="DS Collection (10).jpg" class="photo client ds">
-      <img src="DS Collection (11).jpg" class="photo client ds">
-      <img src="DS Collection (12).jpg" class="photo client ds">
-      <img src="DS Collection (13).jpg" class="photo client ds">
-      <img src="DS Collection (14).jpg" class="photo client ds">
-      <img src="DS Collection (15).jpg" class="photo client ds">
+      <img src="DS Collection (1).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (2).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (3).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (4).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (5).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (6).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (7).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (8).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (9).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (10).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (11).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (12).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (13).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (14).jpg" loading="lazy" class="photo client ds">
+      <img src="DS Collection (15).jpg" loading="lazy" class="photo client ds">
     </div>
   </div>
 
@@ -114,12 +114,12 @@
     <p>Online clothing brand. Freelance photoshoots for social media.</p>
 
     <div class="photo-grid reveal">
-      <img src="Allureus (1).jpg" class="photo client allure">
-      <img src="Allureus (2).jpg" class="photo client allure">
-      <img src="Allureus (3).jpg" class="photo client allure">
-      <img src="Allureus (4).jpg" class="photo client allure">
-      <img src="Allureus (5).jpg" class="photo client allure">
-      <img src="Allureus (6).jpg" class="photo client allure">
+      <img src="Allureus (1).jpg" loading="lazy" class="photo client allure">
+      <img src="Allureus (2).jpg" loading="lazy" class="photo client allure">
+      <img src="Allureus (3).jpg" loading="lazy" class="photo client allure">
+      <img src="Allureus (4).jpg" loading="lazy" class="photo client allure">
+      <img src="Allureus (5).jpg" loading="lazy" class="photo client allure">
+      <img src="Allureus (6).jpg" loading="lazy" class="photo client allure">
     </div>
   </div>
 
@@ -389,6 +389,34 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modal) {
       modal.style.display = "none";
     }
+    /* TOUCH SWIPE SUPPORT */
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  modal.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  modal.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeDistance = touchStartX - touchEndX;
+
+    /* SWIPE LEFT → NEXT IMAGE */
+    if (swipeDistance > 50) {
+      currentIndex = (currentIndex + 1) % imgArray.length;
+      modalImg.src = imgArray[currentIndex].src;
+    }
+
+    /* SWIPE RIGHT → PREVIOUS IMAGE */
+    if (swipeDistance < -50) {
+      currentIndex = (currentIndex - 1 + imgArray.length) % imgArray.length;
+      modalImg.src = imgArray[currentIndex].src;
+    }
+  }
   });
 
 });
@@ -407,6 +435,36 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("nav-menu").classList.remove("active");
     });
   });
+</script>
+<script>
+const allSections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+
+  let currentSection = "home";
+
+  allSections.forEach((section) => {
+
+    const sectionTop = section.offsetTop - 200;
+    const sectionHeight = section.offsetHeight;
+
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute("id");
+    }
+
+  });
+
+  /* HOME = remove hash */
+  if (currentSection === "home") {
+    history.replaceState(null, null, " ");
+  }
+
+  /* OTHER SECTIONS */
+  else {
+    history.replaceState(null, null, "#" + currentSection);
+  }
+
+});
 </script>
 
 </body>

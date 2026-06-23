@@ -444,7 +444,7 @@ header {
   backdrop-filter: blur(10px);
   max-width: 1100px;
   width: 100%;
-  flex-wrap: wrap;
+
   transition: 0.4s ease;
 }
 
@@ -659,5 +659,72 @@ nav {
 
   nav {
     margin-top: 10px;
+  }
+}
+
+
+.site-title {
+  text-decoration: none;
+  color: white;
+
+  font-size: 2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+}
+
+/* NO PURPLE/BLUE LINK COLORS */
+.site-title:visited,
+.site-title:hover,
+.site-title:active {
+  color: white;
+  text-decoration: none;
+}
+
+/* subtle premium hover */
+.site-title:hover {
+  opacity: 0.8;
+}
+
+.modal-img {
+  touch-action: pan-y;
+
+}
+
+/* MODAL IMAGE ANIMATION */
+.modal-img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* SLIDE ANIMATIONS */
+.slide-left {
+  animation: slideLeft 0.3s ease;
+}
+
+.slide-right {
+  animation: slideRight 0.3s ease;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
